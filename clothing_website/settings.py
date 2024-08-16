@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-l0wekzie28_+juo)*8t0a095uzm&j(x^lcn_zjpc=i)limc#x)
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://drf-7rr1.onrender.com', 'https://*.127.0.0.1', 'http://*.127.0.0.1:5500/']
+CSRF_TRUSTED_ORIGINS = ['https://drf-7rr1.onrender.com', 'https://*.127.0.0.1',]
 
 
 # Application definition
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -50,8 +51,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",  # Add your frontend URL here
+    "http://localhost:5500",  # Add your frontend URL here
+]
 ROOT_URLCONF = 'clothing_website.urls'
 
 TEMPLATES = [
