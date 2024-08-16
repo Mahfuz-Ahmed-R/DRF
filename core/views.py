@@ -33,7 +33,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 class ReviewModelViewSet(viewsets.ModelViewSet):
     queryset = models.ReviewModel.objects.all()
-    serializer_class = serializers.ReviewModelSerializers  # Fixed serializer class name
+    serializer_class = serializers.ReviewModelSerializers
 
 
 class InventoryView(APIView):
